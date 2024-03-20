@@ -1,5 +1,14 @@
+import BackgroundHeading from "./components/BackgroundHeading";
+import Footer from "./components/Footer";
+
 function App() {
-  return <>Hello world!</>;
+  return (
+    <>
+      <BackgroundHeading />
+      <main></main>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
