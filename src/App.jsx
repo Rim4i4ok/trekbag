@@ -33,6 +33,8 @@ function App() {
 
       return item;
     });
+
+    setItems(newItems);
   };
 
   const handleRemoveAllItems = () => {
@@ -63,7 +65,10 @@ function App() {
     <>
       <BackgroundHeading />
       <main>
-        <Header />
+        <Header
+          numberOfItemsPacked={items.filter((item) => item.packed).length}
+          totalNumberOfItems={items.length}
+        />
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}

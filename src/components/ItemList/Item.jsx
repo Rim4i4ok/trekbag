@@ -4,8 +4,8 @@ export default function Item({ item, onDeleteItem, onToggleItem }) {
       <label>
         <input
           type="checkbox"
-          checked={item.package}
-          onChange={() => handleToonToggleItemggleItem(item.id)}
+          checked={item.packed}
+          onChange={() => onToggleItem(item.id)}
         />{" "}
         {item?.name}
       </label>
