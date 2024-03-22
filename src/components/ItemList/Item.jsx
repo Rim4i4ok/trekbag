@@ -1,15 +1,15 @@
-export default function Item({ item, handleDeleteItem, handleToggleItem }) {
+export default function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li className="item">
       <label>
         <input
           type="checkbox"
           checked={item.package}
-          onChange={() => handleToggleItem(item.id)}
+          onChange={() => handleToonToggleItemggleItem(item.id)}
         />{" "}
         {item?.name}
       </label>
-      <button onClick={() => handleDeleteItem(item.id)}>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }

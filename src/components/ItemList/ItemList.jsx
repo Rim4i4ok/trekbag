@@ -1,3 +1,4 @@
+import EmptyView from "./EmptyView";
 import Item from "./Item";
 
 export default function ItemList({
@@ -6,14 +7,16 @@ export default function ItemList({
   handleToggleItem,
 }) {
   return (
-    <ul>
+    <ul className="item-list">
+      {items.length === 0 ? <EmptyView /> : null}
+
       {items.map((item) => {
         return (
           <Item
             key={item.id}
             item={item}
-            handleDeleteItem={handleDeleteItem}
-            handleToggleItem={handleToggleItem}
+            onDeleteItem={handleDeleteItem}
+            onToggleItem={handleToggleItem}
           />
         );
       })}
