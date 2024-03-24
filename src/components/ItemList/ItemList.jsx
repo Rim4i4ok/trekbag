@@ -1,7 +1,8 @@
 import Select from "react-select";
 import EmptyView from "./EmptyView";
 import Item from "./Item";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
+import { ItemsContext } from "../../contexts/ItemsContextProvider";
 
 const sortingOptions = [
   {
@@ -18,12 +19,10 @@ const sortingOptions = [
   },
 ];
 
-export default function ItemList({
-  items,
-  handleDeleteItem,
-  handleToggleItem,
-}) {
+export default function ItemList() {
   const [sortBy, setSortBy] = useState("default");
+  const { items, handleDeleteItem, handleToggleItem } =
+    useContext(ItemsContext);
 
   const sortedItems = useMemo(
     () =>
