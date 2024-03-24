@@ -23,7 +23,7 @@ export const useItemsStore = create((set) => ({
     set((state) => ({
       items: state.items.map((item) => {
         if (item.id === id) {
-          return { ...item, package: !item.package };
+          return { ...item, packed: !item.packed };
         }
 
         return item;
@@ -38,12 +38,12 @@ export const useItemsStore = create((set) => ({
   },
   markAllAsComplete: () => {
     set((state) => ({
-      items: state.items.map((item) => ({ ...item, package: true })),
+      items: state.items.map((item) => ({ ...item, packed: true })),
     }));
   },
   markAllAsUnComplete: () => {
     set((state) => ({
-      items: state.items.map((item) => ({ ...item, package: false })),
+      items: state.items.map((item) => ({ ...item, packed: false })),
     }));
   },
 }));
