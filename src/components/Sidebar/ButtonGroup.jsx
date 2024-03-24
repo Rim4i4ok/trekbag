@@ -1,31 +1,30 @@
-import { ItemsContext } from "../../contexts/ItemsContextProvider";
-import { useItemsContext } from "../../lib/hooks";
+import { useItemsStore } from "../../stores/itemsStore";
 import Button from "../Button";
 
 export default function ButtonGroup() {
-  const {
-    handlerMarkAllAsComplete,
-    handlerMarkAllAsUnComplete,
-    handlerResetToInitial,
-    handleRemoveAllItems,
-  } = useItemsContext(ItemsContext);
+  const markAllAsComplete = useItemsStore((state) => state.markAllAsComplete);
+  const markAllAsUnComplete = useItemsStore(
+    (state) => state.markAllAsUnComplete
+  );
+  const resetToInitial = useItemsStore((state) => state.resetToInitial);
+  const removeAllItems = useItemsStore((state) => state.removeAllItems);
 
   const secondaryButtons = [
     {
       text: "Mark all as complete",
-      onClick: handlerMarkAllAsComplete,
+      onClick: markAllAsComplete,
     },
     {
       text: "Mark all as incomplete",
-      onClick: handlerMarkAllAsUnComplete,
+      onClick: markAllAsUnComplete,
     },
     {
       text: "Reset to initial",
-      onClick: handlerResetToInitial,
+      onClick: resetToInitial,
     },
     {
       text: "Remove all items",
-      onClick: handleRemoveAllItems,
+      onClick: removeAllItems,
     },
   ];
 
