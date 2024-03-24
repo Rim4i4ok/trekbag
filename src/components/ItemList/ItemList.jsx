@@ -34,7 +34,10 @@ export default function ItemList({
       return a.packed - b.packed;
     }
 
-    return;
+    // Default sorting by item name
+    if (sortBy === "default") {
+      return a.name.localeCompare(b.name);
+    }
   });
 
   return (
