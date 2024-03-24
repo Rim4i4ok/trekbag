@@ -1,10 +1,8 @@
 import { useMemo, useState } from "react";
 import Select from "react-select";
-import { ItemsContext } from "../../contexts/ItemsContextProvider";
-import { useItemsContext } from "../../lib/hooks";
+import { useItemsStore } from "../../stores/itemsStore";
 import EmptyView from "./EmptyView";
 import Item from "./Item";
-import { useItemsStore } from "../../stores/itemsStore";
 
 const sortingOptions = [
   {
